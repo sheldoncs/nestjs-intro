@@ -47,4 +47,10 @@ export class ProductsService {
     }
     return [product, productIndex];
   }
+  deleteProduct(prodId: string) {
+    const [_, index] = this.findProduct(prodId);
+    this.products = this.products.filter((prod, idx) => {
+      return idx != index;
+    });
+  }
 }
